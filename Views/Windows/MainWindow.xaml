@@ -1,0 +1,114 @@
+﻿<Window x:Class="ImageManager.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageManager"
+        xmlns:viewModel="clr-namespace:ImageManager.ViewModels"
+        xmlns:userControl="clr-namespace:ImageManager.Views.UserControls"
+        mc:Ignorable="d"
+        Title="Image Manager" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Background="{StaticResource Background}">
+
+    <Window.DataContext>
+        <viewModel:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+
+        <userControl:HeaderUserControl
+            Grid.Row="0"
+        />
+        <DataGrid
+            Grid.Row="1"
+            x:Name="ImageManagerGrid"
+            ItemsSource="{Binding IMItems}"
+            SelectedItem="{Binding SelectedIMItem}"
+            AutoGenerateColumns="False" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="auto" 
+            Width="auto"
+>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn
+                    Header="Name"
+                    Width="150*"
+                    MaxWidth="500"
+                    MinWidth="100"
+                >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                            >
+                                <TextBlock 
+                                    Text="{Binding Name}"
+                                    Margin="{Binding Indent}"
+                                    TextWrapping="NoWrap"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn 
+                    Header="Description" 
+                    Binding="{Binding Description}" 
+                    Width="200*"
+                    MaxWidth="500"
+                    MinWidth="100"
+                />
+                <DataGridTemplateColumn 
+                    Header=" " 
+                    Width="150"
+                    MinWidth="150"
+                    MaxWidth="150"
+                >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel 
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                            >
+                                <Button
+                                    Style="{StaticResource DestructiveButton}"
+                                    Content="Delete"
+                                    Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    CommandParameter="{Binding}"
+                                    Width="50"
+                                    Height="20"
+                                    FontSize="12"
+                                    Margin="2"
+                                />
+                                <Button
+                                    Content="Add"
+                                    Command="{Binding DataContext.AddItemToItemCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    CommandParameter="{Binding}"
+                                    Width="50"
+                                    Height="20"
+                                    FontSize="12"
+                                    Margin="2"
+                                />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn 
+                    Header="" 
+                    Width="*"
+                />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

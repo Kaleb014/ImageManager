@@ -1,0 +1,20 @@
+﻿ImageManager
+1.0.0.0
+
+winexe
+C#
+.cs
+F:\wpf apps\ImageManager\ImageManager\obj\Debug\net8.0-windows\
+ImageManager
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+F:\wpf apps\ImageManager\ImageManager\App.xaml
+5-1779963800
+
+13-414230552
+198-352714763
+Resources\Styles\Colors.xaml;Resources\Styles\Styles.xaml;Views\UserControls\HeaderUserControl.xaml;Views\UserControls\ToolsUserControl.xaml;Views\Windows\MainWindow.xaml;
+
+True
+
