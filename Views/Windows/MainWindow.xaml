@@ -19,7 +19,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
 
         <userControl:HeaderUserControl
@@ -56,7 +56,17 @@
                                     TextWrapping="NoWrap"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                />
+                                >
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsParentFolder}" Value="True">
+                                                    <Setter Property="FontWeight" Value="Bold"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -73,6 +83,7 @@
                     Width="150"
                     MinWidth="150"
                     MaxWidth="150"
+                    x:Name="ActionColumn"
                 >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -84,7 +95,8 @@
                                 <Button
                                     Style="{StaticResource DestructiveButton}"
                                     Content="Delete"
-                                    Command="{Binding DataContext.DeleteItemCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    Command="{Binding DataContext.DeleteItemCommand,
+                                    RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                     CommandParameter="{Binding}"
                                     Width="50"
                                     Height="20"
@@ -93,7 +105,8 @@
                                 />
                                 <Button
                                     Content="Add"
-                                    Command="{Binding DataContext.AddItemToItemCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    Command="{Binding DataContext.AddItemToItemCommand,
+                                    RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                     CommandParameter="{Binding}"
                                     Width="50"
                                     Height="20"

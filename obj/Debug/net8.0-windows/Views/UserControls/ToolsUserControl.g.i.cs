@@ -54,7 +54,7 @@ namespace ImageManager.Views.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ImageManager;V1.0.0.0;component/views/usercontrols/toolsusercontrol.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ImageManager;component/views/usercontrols/toolsusercontrol.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\UserControls\ToolsUserControl.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

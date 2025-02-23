@@ -1,5 +1,4 @@
 ﻿using ImageManager.MVVM;
-using System.Collections.ObjectModel;
 using System.Windows;
 
 namespace ImageManager.ViewModels
@@ -9,11 +8,12 @@ namespace ImageManager.ViewModels
 		private string _name;
 		private string _description;
 		private bool _isExpanded;
-		private string _parentName;
+		private IMItemViewModel _parentItem;
 		private int _depth;
 		private Thickness _indent;
-		private string _path;
-		private ObservableCollection<IMItemViewModel> _items;
+		private string _filePath;
+		private int _childCount;
+		private bool _isParentFolder;
 
 		public string Name
 		{
@@ -30,10 +30,10 @@ namespace ImageManager.ViewModels
 			get { return _isExpanded; }
 			set { if (_isExpanded != value) _isExpanded = value; OnPropertyChanged(); }
 		}
-		public string ParentName
+		public IMItemViewModel ParentItem
 		{
-			get { return _parentName; }
-			set { if (_parentName != value) _parentName = value; OnPropertyChanged(); }
+			get { return _parentItem; }
+			set { if (_parentItem != value) _parentItem = value; OnPropertyChanged(); }
 		}
 		public int Depth
 		{
@@ -49,15 +49,21 @@ namespace ImageManager.ViewModels
 				OnPropertyChanged(nameof(_depth));
 			}
 		}
-		public string Path
+		public string FilePath
 		{
-			get { return _path; }
-			set { if (_path != value) _path = value; OnPropertyChanged(); }
+			get { return _filePath; }
+			set { if (_filePath != value) _filePath = value; OnPropertyChanged(); }
 		}
-		public ObservableCollection<IMItemViewModel> Items
+		public int ChildCount
 		{
-			get { return _items; }
-			set { if (_items != value) _items = value; OnPropertyChanged(); }
+			get { return _childCount; }
+			set { if (_childCount != value) _childCount = value; OnPropertyChanged(); }
+		}
+
+		public bool IsParentFolder
+		{
+			get { return _isParentFolder; }
+			set { if (_isParentFolder != value) _isParentFolder = value; OnPropertyChanged(); }
 		}
 	}
 }

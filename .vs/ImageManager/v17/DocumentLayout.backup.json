@@ -7,12 +7,8 @@
       "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|f:\\wpf apps\\imagemanager\\imagemanager\\viewmodels\\imitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:viewmodels\\imitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|f:\\wpf apps\\imagemanager\\imagemanager\\views\\usercontrols\\toolsusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:views\\usercontrols\\toolsusercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|f:\\wpf apps\\imagemanager\\imagemanager\\views\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:views\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|f:\\wpf apps\\imagemanager\\imagemanager\\views\\windows\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -23,8 +19,8 @@
       "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:viewmodels\\tabviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|f:\\wpf apps\\imagemanager\\imagemanager\\views\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:views\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|f:\\wpf apps\\imagemanager\\imagemanager\\viewmodels\\imitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C7F74240-A7A2-4CAB-9781-11889AE12848}|ImageManager.csproj|solutionrelative:viewmodels\\imitemviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +30,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TabViewModel.cs",
+              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\TabViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TabViewModel.cs",
+              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\TabViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TabViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T02:44:27.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\Windows\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\Windows\\MainWindow.xaml.cs",
+              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\Windows\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Views\\Windows\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T01:18:16.783Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -50,61 +72,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ToolsUserControl.xaml",
-              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\UserControls\\ToolsUserControl.xaml",
-              "RelativeDocumentMoniker": "Views\\UserControls\\ToolsUserControl.xaml",
-              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\UserControls\\ToolsUserControl.xaml",
-              "RelativeToolTip": "Views\\UserControls\\ToolsUserControl.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-22T19:49:25.281Z"
+              "DocumentIndex": 4,
+              "Title": "IMItemViewModel.cs",
+              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\IMItemViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\IMItemViewModel.cs",
+              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\IMItemViewModel.cs",
+              "RelativeToolTip": "ViewModels\\IMItemViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-23T02:40:49.034Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\Windows\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Views\\Windows\\MainWindow.xaml",
               "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\Windows\\MainWindow.xaml",
               "RelativeToolTip": "Views\\Windows\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-22T19:48:50.537Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TabViewModel.cs",
-              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\TabViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\TabViewModel.cs",
-              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\TabViewModel.cs",
-              "RelativeToolTip": "ViewModels\\TabViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T19:13:04.109Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IMItemViewModel.cs",
-              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\IMItemViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\IMItemViewModel.cs",
-              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\IMItemViewModel.cs",
-              "RelativeToolTip": "ViewModels\\IMItemViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T19:02:08.04Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\Windows\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Windows\\MainWindow.xaml.cs",
-              "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\Views\\Windows\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Views\\Windows\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T08:14:26.331Z"
+              "WhenOpened": "2025-02-22T19:48:50.537Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -114,7 +103,7 @@
               "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",
               "ToolTip": "F:\\wpf apps\\ImageManager\\ImageManager\\ViewModels\\MainWindowViewModel.cs",
               "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-21T22:16:53.693Z",
               "EditorCaption": ""

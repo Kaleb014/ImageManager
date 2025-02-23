@@ -6,13 +6,20 @@ namespace ImageManager.ViewModels
 {
 	internal class MainWindowViewModel : ViewModelBase
 	{
+		private string _debugText;
+		public string DebugText
+		{
+			get { return _debugText; }
+			set { if (_debugText != value) _debugText = value; OnPropertyChanged(); }
+		}
+
 		private ObservableCollection<IMItemViewModel> _imItems;
 		private IMItemViewModel _selectedIMItem;
 
 		public RelayCommand AddItemCommand => new RelayCommand(execute => AddItem());
 		public RelayCommand AddItemToItemCommand => new RelayCommand(execute => AddItemToItem(execute as IMItemViewModel));
 		public RelayCommand DeleteSelectedItemCommand => new RelayCommand(execute => DeleteSelectedItem(), canExecute => SelectedIMItem != null);
-		public RelayCommand DeleteItemCommand => new RelayCommand(execute => DeleteItem());
+		public RelayCommand DeleteItemCommand => new RelayCommand(execute => DeleteItem(execute as IMItemViewModel, execute as IMItemViewModel), canExecute => SelectedIMItem != null);
 
 		public MainWindowViewModel()
 		{
@@ -35,30 +42,28 @@ namespace ImageManager.ViewModels
 		{
 			_imItems.Add(new IMItemViewModel 
 			{ 
-				Name = $"ListItem{_imItems.Count+1}", 
-				Description = "New Description",
+				Name = "Example", 
+				Description = "Folder",
 				Depth = 0,
-				Indent = new Thickness(0, 0, 0, 0)
+				Indent = new Thickness(0, 0, 0, 0),
+				IsParentFolder = true
 			});
 		}
 
-		private void AddItemToItem(IMItemViewModel item)
+		private void AddItemToItem(IMItemViewModel parentItem)
 		{
-			if (item.Items == null)
-			{
-				item.Items = new ObservableCollection<IMItemViewModel>();
-			}
+			parentItem.ChildCount++;
 
-			item.Items.Add(new IMItemViewModel
+			IMItemViewModel childItem = new IMItemViewModel
 			{
-				Name = $"ChildItem{item.Items.Count + 1}",
-				Description = "New Description",
-				ParentName = item.Name,
-				Depth = item.Depth + 1,
-				Indent = new Thickness(item.Depth * 25, 0, 0, 0)
-			});
+				Name = "Example",
+				Description = "Subfolder",
+				ParentItem = parentItem,
+				Depth = parentItem.Depth + 1,
+				Indent = new Thickness(parentItem.Depth * 25, 0, 0, 0)
+			};
 
-			_imItems.Add(item.Items[item.Items.Count-1]);
+			_imItems.Insert(_imItems.IndexOf(parentItem)+parentItem.ChildCount, childItem);
 		}
 
 		private void DeleteSelectedItem()
@@ -66,9 +71,25 @@ namespace ImageManager.ViewModels
 			_imItems.Remove(SelectedIMItem);
 		}
 
-		private void DeleteItem()
+		private void DeleteItem(IMItemViewModel selectedItem, IMItemViewModel currentItem)
 		{
-			_imItems.Remove(SelectedIMItem);
+			IMItemViewModel sItem = selectedItem;
+			IMItemViewModel cItem = currentItem;
+
+			if (cItem.ChildCount > 0)
+			{
+				DeleteItem(sItem, _imItems[_imItems.IndexOf(cItem) + cItem.ChildCount]);
+			}
+			else
+			{
+				_imItems.Remove(cItem);
+
+				if (cItem.ParentItem != null)
+					cItem.ParentItem.ChildCount--;
+
+				if (sItem != cItem)
+					DeleteItem(sItem, sItem);
+			}
 		}
 	}
 }
