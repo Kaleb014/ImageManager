@@ -6,13 +6,6 @@ namespace ImageManager.ViewModels
 {
 	internal class MainWindowViewModel : ViewModelBase
 	{
-		private string _debugText;
-		public string DebugText
-		{
-			get { return _debugText; }
-			set { if (_debugText != value) _debugText = value; OnPropertyChanged(); }
-		}
-
 		private ObservableCollection<IMItemViewModel> _imItems;
 		private IMItemViewModel _selectedIMItem;
 
@@ -20,6 +13,7 @@ namespace ImageManager.ViewModels
 		public RelayCommand AddItemToItemCommand => new RelayCommand(execute => AddItemToItem(execute as IMItemViewModel));
 		public RelayCommand DeleteSelectedItemCommand => new RelayCommand(execute => DeleteSelectedItem(), canExecute => SelectedIMItem != null);
 		public RelayCommand DeleteItemCommand => new RelayCommand(execute => DeleteItem(execute as IMItemViewModel, execute as IMItemViewModel), canExecute => SelectedIMItem != null);
+		public RelayCommand ExpandCollapseCommand => new RelayCommand(execute => ExpandCollapse(execute as IMItemViewModel), canExecute => SelectedIMItem != null);
 
 		public MainWindowViewModel()
 		{
@@ -29,7 +23,7 @@ namespace ImageManager.ViewModels
 		public ObservableCollection<IMItemViewModel> IMItems
 		{
 			get { return _imItems; }
-			set { if(_imItems != value) _imItems = value; OnPropertyChanged(); }
+			set { if (_imItems != value) _imItems = value; OnPropertyChanged(); }
 		}
 
 		public IMItemViewModel SelectedIMItem
@@ -44,13 +38,11 @@ namespace ImageManager.ViewModels
 			{ 
 				Name = "Example", 
 				Description = "Folder",
-				Depth = 0,
-				Indent = new Thickness(0, 0, 0, 0),
-				IsParentFolder = true
+				Depth = 0
 			});
 		}
 
-		private void AddItemToItem(IMItemViewModel parentItem)
+		private async void AddItemToItem(IMItemViewModel parentItem)
 		{
 			parentItem.ChildCount++;
 
@@ -59,11 +51,30 @@ namespace ImageManager.ViewModels
 				Name = "Example",
 				Description = "Subfolder",
 				ParentItem = parentItem,
-				Depth = parentItem.Depth + 1,
-				Indent = new Thickness(parentItem.Depth * 25, 0, 0, 0)
+				Depth = parentItem.Depth + 1
 			};
 
-			_imItems.Insert(_imItems.IndexOf(parentItem)+parentItem.ChildCount, childItem);
+			_imItems.Insert(_imItems.IndexOf(parentItem) + await GetChildCountTotal(parentItem, parentItem), childItem);
+		}
+
+		private async Task<int> GetChildCountTotal(IMItemViewModel selectedItem, IMItemViewModel currentItem)
+		{
+			int count = 0;
+			IMItemViewModel sItem = selectedItem;
+			IMItemViewModel cItem = currentItem;
+
+			if (cItem.ChildCount > 0)
+			{
+				for (int i = cItem.ChildCount; i > 0; i--)
+				{
+					if (_imItems[_imItems.IndexOf(cItem) + i].ChildCount > 0)
+					count += await GetChildCountTotal(sItem, _imItems[_imItems.IndexOf(cItem) + i]);
+
+					count++;
+				}
+			}
+
+			return count;
 		}
 
 		private void DeleteSelectedItem()
@@ -89,6 +100,38 @@ namespace ImageManager.ViewModels
 
 				if (sItem != cItem)
 					DeleteItem(sItem, sItem);
+			}
+		}
+
+		private async void ExpandCollapse(IMItemViewModel selectedItem)
+		{
+			int count = await GetChildCountTotal(selectedItem, selectedItem);
+			bool isExpanded = selectedItem.IsExpanded;
+
+			switch(isExpanded)
+			{
+				case true: //collapse all children and self
+					selectedItem.IsExpanded = false;
+
+					for (int i = count; i > 0; i--)
+					{
+						IMItemViewModel currentItem = _imItems[_imItems.IndexOf(selectedItem) + i];
+
+						currentItem.IsVisible = false;
+						currentItem.IsExpanded = false;
+					}
+					break;
+				case false: //expand self
+					selectedItem.IsExpanded = true;
+
+					for (int i = count; i > 0; i--)
+					{
+						IMItemViewModel currentItem = _imItems[_imItems.IndexOf(selectedItem) + i];
+
+						if(currentItem.ParentItem == selectedItem)
+							currentItem.IsVisible = true;
+					}
+					break;
 			}
 		}
 	}

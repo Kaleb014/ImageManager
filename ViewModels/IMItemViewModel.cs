@@ -7,13 +7,12 @@ namespace ImageManager.ViewModels
 	{
 		private string _name;
 		private string _description;
-		private bool _isExpanded;
+		private bool _isExpanded = true;
+		private bool _isVisible = true;
 		private IMItemViewModel _parentItem;
 		private int _depth;
-		private Thickness _indent;
 		private string _filePath;
 		private int _childCount;
-		private bool _isParentFolder;
 
 		public string Name
 		{
@@ -28,7 +27,7 @@ namespace ImageManager.ViewModels
 		public bool IsExpanded
 		{
 			get { return _isExpanded; }
-			set { if (_isExpanded != value) _isExpanded = value; OnPropertyChanged(); }
+			set { if (_isExpanded != value) _isExpanded = value; OnPropertyChanged(nameof(ExpandContent)); OnPropertyChanged(); }
 		}
 		public IMItemViewModel ParentItem
 		{
@@ -40,15 +39,6 @@ namespace ImageManager.ViewModels
 			get { return _depth; }
 			set { if (_depth != value) _depth = value; OnPropertyChanged(); }
 		}
-		public Thickness Indent
-		{
-			get { return _indent; }
-			set 
-			{
-				_indent = new Thickness(_depth * 25, 0, 0, 0);
-				OnPropertyChanged(nameof(_depth));
-			}
-		}
 		public string FilePath
 		{
 			get { return _filePath; }
@@ -57,13 +47,41 @@ namespace ImageManager.ViewModels
 		public int ChildCount
 		{
 			get { return _childCount; }
-			set { if (_childCount != value) _childCount = value; OnPropertyChanged(); }
+			set { if (_childCount != value) _childCount = value; OnPropertyChanged(nameof(HasChildren)); }
 		}
 
-		public bool IsParentFolder
+		public Thickness Indent
 		{
-			get { return _isParentFolder; }
-			set { if (_isParentFolder != value) _isParentFolder = value; OnPropertyChanged(); }
+			get { return new Thickness(Depth * 50, 0, 0, 0); }
+		}
+		public bool IsParentItem
+		{
+			get { return Depth == 0; }
+		}
+		public bool HasChildren
+		{
+			get { return ChildCount > 0; }
+		}
+		public char ExpandContent
+		{
+			get => !IsExpanded ? '+' : '-';
+		}
+		public bool IsVisible
+		{
+			get
+			{
+				return _isVisible;
+				//if (ParentItem == null)
+				//	return true;
+				//else
+				//{
+				//	if (ParentItem.IsExpanded)
+				//		return true;
+				//	else
+				//		return false;
+				//}
+			}
+			set { if (_isVisible != value) _isVisible = value; OnPropertyChanged(); }
 		}
 	}
 }
