@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace ImageManager.ViewModels
 {
-	internal class IMItemViewModel : ViewModelBase
+	public class IMItemViewModel : ViewModelBase
 	{
 		private string _name;
 		private string _description;

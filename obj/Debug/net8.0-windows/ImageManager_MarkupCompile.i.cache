@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 F:\wpf apps\ImageManager\ImageManager\App.xaml
-5-1779963800
+62053411501
 
-13-414230552
+15-2008857399
 198-352714763
-Resources\Styles\Colors.xaml;Resources\Styles\Styles.xaml;Views\UserControls\HeaderUserControl.xaml;Views\UserControls\ToolsUserControl.xaml;Views\Windows\MainWindow.xaml;
+Resources\Styles\Colors.xaml;Resources\Styles\Styles.xaml;Views\UserControls\DragPopupUserControl.xaml;Views\UserControls\HeaderUserControl.xaml;Views\UserControls\ToolsUserControl.xaml;Views\Windows\MainWindow.xaml;
 
-True
+False
 

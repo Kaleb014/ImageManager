@@ -9,7 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\Icons\" />
+    <None Remove="Resources\Icons\add.png" />
+    <None Remove="Resources\Icons\folder.png" />
+    <None Remove="Resources\Icons\minus.png" />
+    <None Remove="Resources\Icons\picture.png" />
+    <None Remove="Resources\Icons\plus.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Icons\add.png" />
+    <Resource Include="Resources\Icons\folder.png" />
+    <Resource Include="Resources\Icons\minus.png" />
+    <Resource Include="Resources\Icons\picture.png" />
+    <Resource Include="Resources\Icons\plus.png" />
   </ItemGroup>
 
 </Project>
